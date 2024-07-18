@@ -1,0 +1,16 @@
+.container {
+    margin: 25px auto;
+}
+
+.box {
+    padding: 20px;
+    background-color: white;
+}
+
+.boxContainer {
+    margin: 15px auto;
+}
+
+.field {
+    margin-top: 15px;
+}
