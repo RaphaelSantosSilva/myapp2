@@ -1,7 +1,7 @@
 "use client"
 
 import Default from "@/templates/Default"
-import { Button, Container, Typography, Box, TextField, Select, IconButton } from "@mui/material"
+import { Button, Container, Typography, Box, TextField, Select, IconButton, FormControl, OutlinedInput, InputAdornment } from "@mui/material"
 import  style from './publish.module.css'
 import { DeleteForever, Key, Preview } from "@mui/icons-material"
 import { useDropzone } from "react-dropzone"
@@ -126,6 +126,21 @@ const Publish = () => {
                             Escreva os detalhes do seu produto
                         </Typography>
                         <TextField multiline rows={6} variant="outlined" fullWidth className={style.field} />
+                    </Box>
+                </Container>
+
+                <Container maxWidth='md' className={style.boxContainer}>
+                    <Box className={style.box}>
+                        <Typography component='h6' variant="h6" color='textPrimary'>
+                            Preço
+                        </Typography>
+                        <br/>
+                        <FormControl fullWidth variant="outlined">
+                            <OutlinedInput 
+                                onChange={() => {}} 
+                                startAdornment={<InputAdornment position="start">R$</InputAdornment>}
+                            />
+                        </FormControl>
                     </Box>
                 </Container>
 
