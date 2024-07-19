@@ -1,8 +1,37 @@
+"use client"
+
 import Default from "@/templates/Default"
-import { Button, Container, Typography, Box, TextField, Select } from "@mui/material"
+import { Button, Container, Typography, Box, TextField, Select, IconButton } from "@mui/material"
 import  style from './publish.module.css'
+import { DeleteForever, Key, Preview } from "@mui/icons-material"
+import { useDropzone } from "react-dropzone"
+import { useState } from "react"
+
 
 const Publish = () => {
+    const [files, setFiles] = useState([])
+
+   const { getRootProps, getInputProps} = useDropzone({
+    accept: 'image/*',
+    onDrop: (acceptedFile) => {
+        const newFiles = acceptedFile.map(file => {
+            return Object.assign(file, {
+                preview: URL.createObjectURL(file)
+            })
+        })
+
+        setFiles([
+            ...files,
+            ...newFiles,
+        ])
+    }
+   })
+
+    const handleRemoveFile = fileName => {
+        const newFileState = files.filter(file => file.name !== fileName)
+        setFiles(newFileState)
+    }
+
     return (
         <main>
             <Default>
@@ -51,9 +80,40 @@ const Publish = () => {
                         <Typography component='h6' variant="h6" color='textPrimary'>
                             Imagens
                         </Typography>
-                        <Typography component='div' variant="body2" color='textPrimary'>
+                        <Typography component='div' variant="body2" color='textPrimary' className={style.typo1}>
                             A primeira imagem é a foto principal do seu anúncio
                         </Typography>
+                        
+                        <Box className={style.thumbsContainer}>
+                            <Box className={style.dropzone} {...getRootProps()}>
+                                <input {...getInputProps()} />
+                                <Typography variant="body2" color='textPrimary' className={style.typo2}>
+                                    Clique para adicionar ou arraste a imagem neste local
+                                </Typography>
+                            </Box>
+
+                            {
+                                files.map((file, index) =>(
+                                    <Box key={file.name} className={style.thumb} style={{backgroundImage: `url(${file.preview})`}}>
+                                        {
+                                            index === '0' ?
+                                                <Box className={style.mainImage}>
+                                                    <Typography variant="body2">
+                                                        Principal
+                                                    </Typography>
+                                                </Box>
+                                            : null  
+                                        }
+                                    <Box className={style.mask}>
+                                        <IconButton color="primary" className={style.icon} onClick={() => handleRemoveFile(file.name)} >
+                                            <DeleteForever fontSize="large" />
+                                        </IconButton>
+                                    </Box>
+    
+                                    </Box>
+                                ))
+                            }
+                        </Box>
                     </Box>
                 </Container>
 
