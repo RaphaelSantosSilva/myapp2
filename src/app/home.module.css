@@ -1,0 +1,22 @@
+.container {
+    margin: 25px auto;
+}
+
+.searchBox {
+    display: flex;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+.titulo {
+    margin-bottom: 25px;
+}
+
+.card {
+    width: 100%;
+    padding-top: 56%;
+}
+
+.destaque {
+    margin-bottom: 25px;
+}
