@@ -23,7 +23,7 @@ const Home = () => {
           </Paper>
         </Container>
 
-        <Container maxWidth='md' className={style.destaque}>
+        <Container maxWidth='lg' className={style.destaque}>
           <Typography component='h1' variant="h3" align="center">
             Destaques
           </Typography>
