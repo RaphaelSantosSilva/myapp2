@@ -1,0 +1,13 @@
+.footer {
+    border-top: 1px solid black;
+    margin-top: 55px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.links {
+    font-size: 11px;
+    font-family: 'Arial';
+    text-decoration: none;
+    color: black;
+}

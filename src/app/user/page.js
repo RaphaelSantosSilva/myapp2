@@ -1,5 +1,6 @@
 import Default from "@/templates/Default"
 import style from './dash.module.css'
+import Link from "next/link"
 import { 
   Button, 
   Card, 
@@ -19,9 +20,11 @@ const Dashboard = () => {
           <Typography component="h1" variant="h2" className={style.titulo} align="center">
             Meus Anúncios
           </Typography>
-          <Button variant='contained' color='primary' className={style.btn}>
-            Publicar novo anúncio
-          </Button>
+          <Link className={style.link} href='/publish'>
+            <Button variant='contained' color='primary' className={style.btn}>
+              Publicar novo anúncio
+            </Button>
+          </Link>
         </Container>
 
         <Container maxWidth='md'>
