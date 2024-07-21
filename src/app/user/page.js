@@ -1,12 +1,9 @@
 import Default from "@/templates/Default"
+import Cards from "@/components/Cards"
 import style from './dash.module.css'
 import Link from "next/link"
 import { 
   Button, 
-  Card, 
-  CardActions, 
-  CardContent, 
-  CardMedia, 
   Container, 
   Grid, 
   Typography 
@@ -28,111 +25,43 @@ const Dashboard = () => {
         </Container>
 
         <Container maxWidth='md'>
-            <Grid container spacing={4}>
-              <Grid item xs={12} sm={6} md={4}>
-                <Card>
-                  <CardMedia
-                    className= { style.card }
-                    image={'https://pop.proddigital.com.br/wp-content/uploads/sites/8/2024/01/01-59.jpg'}
-                    title="Título da imagem"
-                  />
-                  <CardContent>
-                    <Typography variant="h5" component='h2'>
-                      Produto X
-                    </Typography>
-                    <Typography variant="h5" component='h2'>
-                      R$ 60,00
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
+          <Grid container spacing={4}>
+            <Grid className={style.grid} item xs={12} sm={6} md={4}>
+              <Cards
+                image={'https://cdn.awsli.com.br/2500x2500/735/735589/produto/34758280/a76379530d.jpg'}
+                title='Produto Y'
+                subtitle='R$ 120,00'
+                actions={
+                  <>
                     <Button size="small" color="primary">
                       Editar
                     </Button>
                     <Button size="small" color="primary">
                       Remover
                     </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+                  </>
+                }
+              />
+            </Grid> 
 
-              <Grid item xs={12} sm={6} md={4}>
-                <Card>
-                  <CardMedia
-                    className= { style.card }
-                    image={'https://pop.proddigital.com.br/wp-content/uploads/sites/8/2024/01/01-59.jpg'}
-                    title="Título da imagem"
-                  />
-                  <CardContent>
-                    <Typography variant="h5" component='h2'>
-                      Produto X
-                    </Typography>
-                    <Typography variant="h5" component='h2'>
-                      R$ 60,00
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
+            <Grid className={style.grid} item xs={12} sm={6} md={4}>
+              <Cards
+                image={'https://www.chavesnamao.com.br/imn/0600x0400/A/veiculos/73944/6505116/harley-davidson-v-rod-em-curitiba-pr-6c8857bc.jpg'}
+                title='Harley Davidson'
+                subtitle='R$ 50.000,00'
+                actions={
+                  <>
+                     <Button size="small" color="primary">
                       Editar
                     </Button>
                     <Button size="small" color="primary">
                       Remover
                     </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} sm={6} md={4}>
-                <Card>
-                  <CardMedia
-                    className= { style.card }
-                    image={'https://pop.proddigital.com.br/wp-content/uploads/sites/8/2024/01/01-59.jpg'}
-                    title="Título da imagem"
-                  />
-                  <CardContent>
-                    <Typography variant="h5" component='h2'>
-                      Produto X
-                    </Typography>
-                    <Typography variant="h5" component='h2'>
-                      R$ 60,00
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Editar
-                    </Button>
-                    <Button size="small" color="primary">
-                      Remover
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} sm={6} md={4}>
-                <Card>
-                  <CardMedia
-                    className= { style.card }
-                    image={'https://pop.proddigital.com.br/wp-content/uploads/sites/8/2024/01/01-59.jpg'}
-                    title="Título da imagem"
-                  />
-                  <CardContent>
-                    <Typography variant="h5" component='h2'>
-                      Produto X
-                    </Typography>
-                    <Typography variant="h5" component='h2'>
-                      R$ 60,00
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Editar
-                    </Button>
-                    <Button size="small" color="primary">
-                      Remover
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+                  </>
+                }
+              />
             </Grid>
+          </Grid>
         </Container>
       </Default>
     </main>

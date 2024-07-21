@@ -1,6 +1,5 @@
 .titulo {
     padding: 20px;
-    color: black;
 }
 
 .link {
@@ -11,7 +10,7 @@
     margin: 30px auto;
     display: block;
     background-color: black;
-    color: white;
+    color: red;
 }
 
 .btn:hover {

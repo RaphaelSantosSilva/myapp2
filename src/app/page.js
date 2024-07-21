@@ -1,6 +1,7 @@
 import Default from "@/templates/Default"
-import { Card, Button, CardMedia, Paper, Grid, Container, IconButton, InputBase, Typography, CardContent, CardActions } from "@mui/material"
+import { Button, Paper, Grid, Container, IconButton, InputBase, Typography } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search'
+import Cards from "@/components/Cards"
 import style from './home.module.css'
 
 
@@ -23,92 +24,68 @@ const Home = () => {
           </Paper>
         </Container>
 
-        <Container maxWidth='lg' className={style.destaque}>
+        <Container maxWidth='lg ' className={style.destaque}>
           <Typography component='h1' variant="h3" align="center">
             Destaques
           </Typography>
         </Container>
           
-          <Container maxWidth='md'>
+        <Container maxWidth='md'>
           <Grid container spacing={4}>
-              <Grid item xs={12} sm={6} md={4}>
-                <Card>
-                  <CardMedia
-                    className= { style.card }
-                    image={'https://www.adrenaline.com.br/wp-content/uploads/2024/04/ps5-pro.jpg'}
-                    title="Título da imagem"
-                  />
-                  <CardContent>
-                    <Typography variant="h5" component='h2'>
-                      PlayStation 5
-                    </Typography>
-                    <Typography variant="h5" component='h2'>
-                      R$ 3.999,99
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Comprar
-                    </Button>
-                    <Button size="small" color="primary">
-                      Mais Detalhes
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} sm={6} md={4}>
-                <Card>
-                  <CardMedia
-                    className= { style.card }
-                    image={'https://www.fastshop.com.br/wcsstore/FastShopCAS/images/catalog/UXX1605ZA_PRD/UXX1605ZA_PRD_447_1.jpeg'}
-                    title="Título da imagem"
-                  />
-                  <CardContent>
-                    <Typography variant="h5" component='h2'>
-                      Notebook Asus
-                    </Typography>
-                    <Typography variant="h5" component='h2'>
-                      R$ 3.450,00
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Comprar
-                    </Button>
-                    <Button size="small" color="primary">
-                      Mais Detalhes
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} sm={6} md={4}>
-                <Card>
-                  <CardMedia
-                    className= { style.card }
-                    image={'https://i.zst.com.br/thumbs/12/1e/3f/1948928833.jpg'}
-                    title="Título da imagem"
-                  />
-                  <CardContent>
-                    <Typography variant="h5" component='h2'>
-                      TV Samsung 60'
-                    </Typography>
-                    <Typography variant="h5" component='h2'>
-                      R$ 2.490,00
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Comprar
-                    </Button>
-                    <Button size="small" color="primary">
-                      Mais Detalhes
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+               <Cards 
+                   image={'https://www.chavesnamao.com.br/imn/0600x0400/A/veiculos/73944/6505116/harley-davidson-v-rod-em-curitiba-pr-6c8857bc.jpg'}
+                   title='Harley Davidson'
+                   subtitle='R$ 50.000,00'
+                   actions={
+                     <>
+                      <Button size="small" color="primary">
+                        Editar
+                      </Button>
+                      <Button size="small" color="primary">
+                        Remover
+                      </Button>
+                    </>
+                  }
+                />
             </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+              <Cards
+                image={'https://www.motonline.com.br/noticia/wp-content/uploads/2021/02/Yamaha-XVS-650-Drag-Star-3-800x420.jpg'}
+                title='Drag Star'
+                subtitle='R$ 20.000,00'
+                actions={
+                  <>
+                    <Button size="small" color="primary">
+                      Editar
+                    </Button>
+                    <Button size="small" color="primary">
+                      Remover
+                    </Button>
+                  </>
+                }
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={4}>
+            <Cards
+                image={'https://cdn.motor1.com/images/mgl/gre2E/s1/indian-motorcycle-scout-bobber.webp'}
+                title='Indian Scout'
+                subtitle='R$ 70.000,00'
+                actions={
+                  <>
+                    <Button size="small" color="primary">
+                      Editar
+                    </Button>
+                    <Button size="small" color="primary">
+                      Remover
+                    </Button>
+                  </>
+                }
+              />
+            </Grid>
+          </Grid>
         </Container>
       </Default>
     </main>

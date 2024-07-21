@@ -18,7 +18,7 @@ const Footer = () => {
 
                 <Grid item xs={6} sm={3}>
                     <Box textAlign='center'>
-                        <Link className={style.links} href='#'>
+                        <Link className={style.links} href='/security'>
                             <Typography>
                                 Dicas de segurança
                             </Typography>

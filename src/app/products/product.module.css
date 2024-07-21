@@ -1,0 +1,26 @@
+.box {
+    background-color: white;
+    padding: 30px;
+    margin: 15px;
+}
+
+.productName {
+    margin: 15px 0;
+}
+
+.price {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.descricaoTitle {
+    margin-bottom: 20px;
+}
+
+.card {
+    height: 100%;
+}
+
+.cardMedia {
+    padding-top: 56%;
+}
