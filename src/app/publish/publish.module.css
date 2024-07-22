@@ -78,3 +78,11 @@
     color: white;
 }
 
+.button {
+    background-color: black;
+}
+
+.button:Hover {
+    background-color: rgb(54, 54, 54);
+}
+

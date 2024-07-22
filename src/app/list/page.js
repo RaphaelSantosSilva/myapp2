@@ -37,7 +37,7 @@ const List = () => {
                             <Grid item xs={12} sm={6} md={4}>
                                 <Cards 
                                     image={'https://cdn.leroymerlin.com.br/products/ventilador_de_mesa_parede_40cm_127v_preto_turbo_force_2_em_1_91912324_0001_600x600.jpg'}
-                                    title='Produto X'
+                                    title='Ventilador Arno'
                                     subtitle='R$ 250,00'
                                 />
                             </Grid>
@@ -45,7 +45,7 @@ const List = () => {
                             <Grid item xs={12} sm={6} md={4}>
                                 <Cards 
                                     image={'https://http2.mlstatic.com/D_NQ_NP_771026-MLU54959468081_042023-O.webp'}
-                                    title='Produto Y'
+                                    title='Mouse Gamer'
                                     subtitle='R$ 100,00'
                                 />
                             </Grid>
@@ -53,7 +53,7 @@ const List = () => {
                             <Grid item xs={12} sm={6} md={4}>
                                 <Cards 
                                     image={'https://aocstore.vtexassets.com/arquivos/ids/157776-800-800?v=637937570578630000&width=800&height=800&aspect=true'}
-                                    title='Produto Z'
+                                    title='Monitor LED 4K'
                                     subtitle='R$ 1.000,00'
                                 />
                             </Grid>
