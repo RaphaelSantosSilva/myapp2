@@ -21,6 +21,19 @@ const validationSchema = yup.object().shape({
     description: yup.string()
         .min(50, 'Escreva uma descrição com no mínimo 50 caracteres.')
         .required('Campo obrigatório'),
+
+    price: yup.number()
+        .required('Campo obrigatório'),
+
+    email: yup.string()
+        .email('Digite um e-mail válido')
+        .required('Campo obrigatório'),
+
+    name: yup.string()
+        .required('Campo obrigatório'),
+
+    telephone: yup.number()
+        .required('Campo obrigatório'),
 })
 
 
@@ -56,6 +69,10 @@ const Publish = () => {
                         title: '',
                         category: '',
                         description: '',
+                        price: '',
+                        email: '',
+                        name: '',
+                        telephone: '',
                     }}
                     validationSchema={validationSchema}
                     onSubmit={(values) => {
@@ -182,6 +199,7 @@ const Publish = () => {
                                                     multiline rows={6} 
                                                     variant="outlined" 
                                                     className={style.field} 
+                                                    onChange={handleChange}
                                                 />
                                                 <FormHelperText>
                                                     {errors.description}
@@ -192,15 +210,19 @@ const Publish = () => {
 
                                     <Container maxWidth='md' className={style.boxContainer}>
                                         <Box className={style.box}>
-                                            <Typography component='h6' variant="h6" color='textPrimary'>
-                                                Preço
-                                            </Typography>
-                                            <br/>
-                                            <FormControl fullWidth variant="outlined">
-                                                <OutlinedInput 
-                                                    onChange={() => {}} 
+                                            <FormControl error={errors.price} fullWidth>
+                                                <InputLabel className={style.inputLabel}>
+                                                    Preço
+                                                </InputLabel>
+                                                <Input 
+                                                    name="price"
+                                                    variant='outlined'
+                                                    onChange={handleChange}
                                                     startAdornment={<InputAdornment position="start">R$</InputAdornment>}
                                                 />
+                                                <FormHelperText>
+                                                    {errors.price}
+                                                </FormHelperText>
                                             </FormControl>
                                         </Box>
                                     </Container>
@@ -210,13 +232,19 @@ const Publish = () => {
                                             <Typography component='h6' variant="h6" color='textPrimary'>
                                                 Dados de contato
                                             </Typography>
-                                            <TextField 
-                                                label='Nome'
-                                                variant="outlined"
-                                                size="small"
-                                                fullWidth
-                                            />
+                                            
+                                            <FormControl error={errors.name} fullWidth>
+                                                <InputLabel className={style.inputLabel}>
+                                                    Nome
+                                                </InputLabel>
+                                                <Input 
+                                                    name="name"
+                                                    value={values.name}
+                                                    onChange={handleChange}
+                                                />
+                                            </FormControl>
                                             <br/> <br/>
+                                            
                                             <TextField 
                                                 label='E-mail'
                                                 variant="outlined"
@@ -224,6 +252,7 @@ const Publish = () => {
                                                 fullWidth
                                             />
                                             <br/> <br/>
+                                            
                                             <TextField 
                                                 label='Telefone'
                                                 variant="outlined"
