@@ -1,10 +1,10 @@
 "use client"
 
 import Default from "@/templates/Default"
-import { Button, Container, Typography, Box, TextField, Select, IconButton, FormControl, OutlinedInput, InputAdornment } from "@mui/material"
+import { Button, MenuItem, Container, Typography, Box, TextField, Select, IconButton, FormControl, OutlinedInput, InputAdornment, FormHelperText } from "@mui/material"
 import  style from './publish.module.css'
 import { Formik } from "formik"
-import { DeleteForever, Key, Preview } from "@mui/icons-material"
+import { DeleteForever } from "@mui/icons-material"
 import { useDropzone } from "react-dropzone"
 import { useState } from "react"
 import * as yup from 'yup'
@@ -14,6 +14,9 @@ const validationSchema = yup.object().shape({
         .min(6, 'Escreva um título maior')
         .max(100, 'Título muito grande')
         .required('Campo obrigatório'),
+
+    category: yup.string()
+        .required('Campo obrigatório')    
 })
 
 
@@ -46,7 +49,8 @@ const Publish = () => {
             <Default>
                 <Formik
                     initialValues={{
-                        title: ''
+                        title: '',
+                        category: '',
                     }}
                     validationSchema={validationSchema}
                     onSubmit={(values) => {
@@ -91,20 +95,29 @@ const Publish = () => {
                                             <Typography component='h6' variant="h6" color='textPrimary'>
                                                 Categoria
                                             </Typography>
-                                            <Select fullWidth native value=''>
-                                                <option value=''>Selecione</option>
-                                                <option value={1}>Bebê e Crianças</option>
-                                                <option value={2}>Agricultura</option>
-                                                <option value={3}>Moda</option>
-                                                <option value={4}>Tecnologia</option>
-                                                <option value={5}>Lazer</option>
-                                                <option value={6}>Livros</option>
-                                                <option value={7}>Carros e Motos</option>
-                                                <option value={8}>Móveis</option>
-                                                <option value={9}>Eletrodomésticos</option>
-                                                <option value={10}>Perfumaria</option>
-                                                <option value={11}>Jardinagem</option>
-                                            </Select>
+                                            <FormControl error={errors.category} fullWidth>
+                                                <Select
+                                                name="category" 
+                                                values={values.category} 
+                                                fullWidth 
+                                                onChange={handleChange}
+                                                >
+                                                <MenuItem  value='Crianças'>Crianças</MenuItem>
+                                                <MenuItem  value='Agricultura'>Agricultura</MenuItem>
+                                                <MenuItem  value='Moda'>Moda</MenuItem>
+                                                <MenuItem  value='Tecnologia'>Tecnologia</MenuItem>
+                                                <MenuItem  value='Lazer'>Lazer</MenuItem>
+                                                <MenuItem  value='Livros'>Livros</MenuItem>
+                                                <MenuItem  value='Carros'>Carros</MenuItem>
+                                                <MenuItem  value='Móveis'>Móveis</MenuItem>
+                                                <MenuItem  value='Eletrodomésticos'>Eletrodomésticos</MenuItem>
+                                                <MenuItem  value='Perfumarua'>Perfumaria</MenuItem>
+                                                <MenuItem  value='Jardinagem'>Jardinagem</MenuItem>
+                                                </Select>
+                                                <FormHelperText>
+                                                    {errors.category}
+                                                </FormHelperText>
+                                            </FormControl>
                                         </Box>
                                     </Container>
 
