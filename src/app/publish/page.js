@@ -1,7 +1,7 @@
 "use client"
 
 import Default from "@/templates/Default"
-import { Button, MenuItem, Container, Typography, Box, TextField, Select, IconButton, FormControl, OutlinedInput, InputAdornment, FormHelperText } from "@mui/material"
+import { Button, MenuItem, Container, Typography, Box, TextField, Select, IconButton, FormControl, OutlinedInput, InputAdornment, FormHelperText, Input, InputLabel } from "@mui/material"
 import  style from './publish.module.css'
 import { Formik } from "formik"
 import { DeleteForever } from "@mui/icons-material"
@@ -16,7 +16,11 @@ const validationSchema = yup.object().shape({
         .required('Campo obrigatório'),
 
     category: yup.string()
-        .required('Campo obrigatório')    
+        .required('Campo obrigatório'),
+        
+    description: yup.string()
+        .min(50, 'Escreva uma descrição com no mínimo 50 caracteres.')
+        .required('Campo obrigatório'),
 })
 
 
@@ -51,6 +55,7 @@ const Publish = () => {
                     initialValues={{
                         title: '',
                         category: '',
+                        description: '',
                     }}
                     validationSchema={validationSchema}
                     onSubmit={(values) => {
@@ -78,24 +83,27 @@ const Publish = () => {
 
                                     <Container maxWidth='md'>
                                         <Box className={style.box}>
-                                            <Typography component='h6' variant="h6" color='textPrimary'>
-                                                Título do anúncio
-                                            </Typography>
-                                            <TextField
-                                                name="title"
-                                                value={values.title}
-                                                onChange={handleChange}
-                                                label='ex.: Bicicleta aro 26'
-                                                size="small"
-                                                fullWidth
-                                                error={errors.title}
-                                                helperText={errors.title}
-                                             />
+                                            <FormControl error={errors.title} fullWidth>
+                                                <InputLabel className={style.inputLabel}>
+                                                    Título do anúncio
+                                                </InputLabel>
+                                                <Input
+                                                    name="title"
+                                                    value={values.title}
+                                                    onChange={handleChange}
+                                                />
+                                                <FormHelperText>
+                                                    {errors.title}
+                                                </FormHelperText>
+                                            
+                                            </FormControl>
+                                            
                                             <br/> <br/>
-                                            <Typography component='h6' variant="h6" color='textPrimary'>
-                                                Categoria
-                                            </Typography>
+                                            
                                             <FormControl error={errors.category} fullWidth>
+                                                <InputLabel className={style.inputLabel}>
+                                                    Categoria
+                                                </InputLabel>
                                                 <Select
                                                 name="category" 
                                                 values={values.category} 
@@ -165,13 +173,20 @@ const Publish = () => {
 
                                     <Container maxWidth='md' className={style.boxContainer}>
                                         <Box className={style.box}>
-                                            <Typography component='h6' variant="h6" color='textPrimary'>
-                                                Descrição
-                                            </Typography>
-                                            <Typography component='div' variant="body2" color='textPrimary'>
-                                                Escreva os detalhes do seu produto
-                                            </Typography>
-                                            <TextField multiline rows={6} variant="outlined" fullWidth className={style.field} />
+                                            <FormControl error={errors.description} fullWidth>
+                                                <InputLabel className={style.inputLabel}>
+                                                    Escreva os detalhes do que está vendendo
+                                                </InputLabel>
+                                                <Input
+                                                    name="description"
+                                                    multiline rows={6} 
+                                                    variant="outlined" 
+                                                    className={style.field} 
+                                                />
+                                                <FormHelperText>
+                                                    {errors.description}
+                                                </FormHelperText>
+                                            </FormControl>
                                         </Box>
                                     </Container>
 
