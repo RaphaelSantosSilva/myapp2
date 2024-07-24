@@ -1,0 +1,21 @@
+.container {
+    margin: 30px auto;
+}
+
+.box {
+    padding: 15px;
+    background-color: white;
+}
+
+.button {
+    margin-top: 20px;
+    background-color: black;
+}
+
+.button:hover {
+    background-color: rgb(33, 33, 33);
+}
+
+.formControl {
+    margin: 10px;
+}
